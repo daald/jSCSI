@@ -30,15 +30,27 @@
                   <groupId>org.apache.maven.plugins</groupId>
                   <artifactId>maven-assembly-plugin</artifactId>
                   <configuration>
-                     <descriptors>
+                     <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                     </descriptorRefs>
+                     <!--<descriptors>
                         <descriptor>src/main/assembly/jarAssembly.xml</descriptor>
-                     </descriptors>
+                     </descriptors>-->
                      <archive>
                         <manifest>
                            <mainClass>org.jscsi.target.TargetServer</mainClass>
                         </manifest>
                      </archive>
                   </configuration>
+                  <executions>
+                      <execution>
+                        <id>make-assembly</id> <!-- this is used for inheritance merges -->
+                        <phase>package</phase> <!-- bind to the packaging phase -->
+                        <goals>
+                          <goal>single</goal>
+                        </goals>
+                      </execution>
+                    </executions>
                </plugin>
             </plugins>
          </build>
@@ -92,9 +104,9 @@
    </profiles>
    <dependencies>
       <dependency>
-         <groupId>org.jscsi</groupId>
+         <groupId>${project.groupId}</groupId>
          <artifactId>commons</artifactId>
-         <version>2.5.1-SNAPSHOT</version>
+         <version>${project.version}</version>
       </dependency>
       <dependency>
          <groupId>org.jclouds</groupId>

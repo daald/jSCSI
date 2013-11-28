@@ -19,11 +19,11 @@
 	<version>2.5.1-SNAPSHOT</version>
 	<name>Builder</name>
 
-	<parent>
+	<!--<parent>
 		<groupId>org.sonatype.oss</groupId>
 		<artifactId>oss-parent</artifactId>
 		<version>7</version>
-	</parent>
+	</parent>-->
 
 	<description>jSCSI is a feature-complete iSCSI implementation in Java only. Platform-independent and fast, jSCSI represents a premium example how low-level protocols can be pushed to higher levels. jSCSI contains a server (target), a client (initiator) and common classes to work with the protocol.</description>
 
@@ -287,7 +287,7 @@
 			<version>1.7.2</version>
 		</dependency>
 	</dependencies>
-	<repositories>
+	<!--<repositories>
 		<repository>
 			<id>sonatype-nexus-snapshots</id>
 			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
@@ -308,9 +308,10 @@
 			<id>file</id>
 			<url>file:${site.deploy.dir}</url>
 		</site>
-	</distributionManagement>
+	</distributionManagement>-->
 
 	<modules>
+		<module>bundles/commons</module>
 		<module>bundles/initiator</module>
 		<module>bundles/target</module>
 	</modules>
